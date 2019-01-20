@@ -1,3 +1,7 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -10,47 +14,36 @@
 
 	<form method="get">
 		<input name="a">
-		<input name="a">
-		<input name="a">
+		<input name="b">
+		<input name="c">
 		<input type="submit">
 	</form>
 	
 	<%
 	
-	String arr[] = request.getParameterValues("a");
+// 	Map<String,String> map = new HashMap<String,String>();
 	
-	String b = "";
+// 	map.put("a", request.getParameter("a"));
+// 	map.put("b", request.getParameter("b"));
+// 	map.put("c", request.getParameter("c"));
 	
-	System.out.println(b+"test!!");
 	
-	if(b.equals("")){
-		out.println("Success!!");
+// 	out.println(map.get("a"));
+// 	out.println(map.get("b"));
+// 	out.println(map.get("c"));
+	
+// 	String[] arr = request.getParameterValues("a");
+	String[] arr = new String[3];
+	
+	List<String> list = new ArrayList<String>();
+	
+	list.add(request.getParameter("a"));
+	list.add(request.getParameter("b"));
+	list.add(request.getParameter("c"));
+	
+	for(int i = 0; i<list.size(); i++){
+		out.println(list.get(i));
 	}
-	
-	if(b.isEmpty()){
-		out.println("Success@@");
-	}
-	
-	String c = null;
-	if(c == null){
-		out.println("Nothing!!");		
-	}else{
-		out.println(Integer.parseInt(c));
-		
-	}
-	
-	if(arr == null){
-	
-	 	out.println("내용없음");	
-	 	
-	}else{
-		for(int i=0; i<arr.length; i++){
-			out.println(arr.length);
-			out.println(arr[i]);
-		}
-	}
-	
-	
 	%>
 
 </body>
